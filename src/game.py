@@ -61,6 +61,8 @@ while running:
     collide = lambda a,b : a >= b 
     bounce = lambda vx,vy : vec(x=-2*vx,y=-2*vy)
 
+
+    #TODO: make this more intuitive
     def check_collision():
         if(collide(ball.get_position().y+ball.get_size().y+1,screen_height) or collide(0,ball.get_position().y-1)):
             ball.update_velocity(bounce(0,ball.get_velocity().y))
@@ -71,7 +73,6 @@ while running:
         if(collide(ball.get_position().x+ball.get_size().x+1,player_2.get_position().x)) and (collide(ball.get_position().y+ball.get_size().y,player_2.get_position().y) and collide(player_2.get_position().y+player_2.get_size().y+1,ball.get_position().y)):
             ball.update_velocity(bounce(ball.get_velocity().x,0))
 
-
     check_collision()
 
     
@@ -79,8 +80,8 @@ while running:
 
            
     ball.move()                 
-    if not (collide(screen_height,player_1.get_position().y+player_1.get_size().y) or collide(0,player_1.get_position().y)):
-        player_1.move()
+
+    player_1.move()
     if not (collide(screen_height,player_2.get_position().y+player_2.get_size().y) or collide(0,player_2.get_position().y)):
         player_2.move()
 
