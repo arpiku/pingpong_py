@@ -4,6 +4,7 @@ import sys
 from vector import Vector as vec
 from entities import * 
 from functools import partial
+from counter import Counter as cc
 
 
 ##For a ping pong game only three 2D vector should be fine.
@@ -77,15 +78,18 @@ while running:
 
     
 
-
-           
+          
     ball.move()                 
 
     player_1.move()
-    if not (collide(screen_height,player_2.get_position().y+player_2.get_size().y) or collide(0,player_2.get_position().y)):
-        player_2.move()
+    ##if not (collide(screen_height,player_2.get_position().y+player_2.get_size().y) or collide(0,player_2.get_position().y)):
+    player_2.move()
 
     screen.fill(black)
+    c1 = cc(5)
+    print(type(screen))
+    c1.draw_counter(screen)
+ 
     pygame.draw.rect(screen,white,pygame.Rect(ball.get_position().x,ball.get_position().y,ball.get_size().x,ball.get_size().y))
     pygame.draw.rect(screen,white,pygame.Rect(player_1.get_position().x,player_1.get_position().y,player_1.get_size().x,player_1.get_size().y))
     pygame.draw.rect(screen,white,pygame.Rect(player_2.get_position().x,player_2.get_position().y,player_2.get_size().x,player_2.get_size().y))

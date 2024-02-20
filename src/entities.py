@@ -36,13 +36,16 @@ class Ball(Entity):
         super().__init__(position,velocity,size)
 
 
-
-
 class Player(Entity):
     def __init__(self,position,velocity,size):
         super().__init__(position,velocity,size)
         self.points = 0
     def add_point(self):
         self.points += 1
+
+
+
+
+
 
 
